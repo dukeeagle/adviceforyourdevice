@@ -93,3 +93,11 @@ document.getElementById('submitUserData').onclick = function submitUserData(){
     $('#device2').val('');
     $('#device3').val('');
 }
+
+function getClients(){
+
+  return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+  var username = snapshot.val().name;
+  
+});
+}
