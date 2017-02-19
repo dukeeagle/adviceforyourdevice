@@ -69,14 +69,20 @@ function collectUserForm(){
 var database = firebase.database();
 
 function writeUserData(userData){
-  firebase.database().ref('users/' + name).set({
-    name: userData.clientname,
-    device1: userData.device1,
-    device2: userData.device2,
-    device3: userData.device3
-  });
+  var username = userData.clientname;
+  firebase.database().ref('users/' + name + "/").push({
 
-}
+      clientData: {
+        name: userData.clientname,
+        device1: userData.device1,
+        device2: userData.device2,
+        device3: userData.device3,
+        location: "lodge"
+      }
+    })
+  };
+
+
 
 document.getElementById('submitUserData').onclick = function submitUserData(){
     var userData =collectUserForm();
