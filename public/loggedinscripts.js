@@ -48,10 +48,10 @@ window.addEventListener('load', function() {
 
 
 function collectUserForm(){
-    var clientname = $('clientname').submit();
-    var device1 = $('device1').submit();
-    var device2 = $('device2').submit();
-    var device3 = $('device3').submit();
+    var clientname = $('#clientname').val();
+    var device1 = $('#device1').val();
+    var device2 = $('#device2').val();
+    var device3 = $('#device3').val();
 
     var userData = {
       clientname: clientname,
@@ -59,6 +59,7 @@ function collectUserForm(){
       device2: device2,
       device3: device3
     };
+
 
     return userData;
 }
@@ -81,4 +82,8 @@ document.getElementById('submitUserData').onclick = function submitUserData(){
     var userData =collectUserForm();
     writeUserData(userData);
     console.log(writeUserData(userData));
+    $('#clientname').val('');
+    $('#device1').val('');
+    $('#device2').val('');
+    $('#device3').val('');
 }
